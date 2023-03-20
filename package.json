@@ -1,6 +1,4 @@
 {
-  "name": "the_adventure_of_the_fish",
-  "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -9,13 +7,22 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "~48.0.6",
-    "expo-status-bar": "~1.4.4",
-    "react": "18.2.0",
-    "react-native": "0.71.3"
+    "expo": "~47.0.12",
+    "expo-status-bar": "~1.4.2",
+    "react": "18.1.0",
+    "react-native": "0.70.5",
+    "expo-gl": "~12.0.1",
+    "matter-js": "*",
+    "prop-types": "*",
+    "processing-js": "1.6.6",
+    "expo-constants": "~14.0.2",
+    "expo-processing": "*",
+    "@expo/vector-icons": "^13.0.0",
+    "react-native-paper": "4.9.2",
+    "react-native-game-engine": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.12.9"
   },
   "private": true
 }
