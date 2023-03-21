@@ -49,16 +49,13 @@ export default function TileMap(props) {
     };
   }
   let img = props.img;
-  React.useEffect(() => {
-  
-  }, []);
-
   return (
     <View style={styles.container}>
       {layer
         .filter((f, i) => f.test == mapIndex[i])
-        .map((x) => (
+        .map((x,j) => (
           <Image
+            key={j + "image"}
             style={getTileStyles(x.column, x.row,body.size(props.scena.tilewidth))}
             source={img[x.test - 1]}
           />

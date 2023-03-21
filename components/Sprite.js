@@ -67,11 +67,11 @@ export default class Sprite extends React.Component {
       fps: Number(fps),
       loop: loop,
       resetAfterFinish: resetAfterFinish,
-      onFinish: () => console.log('hi')
+      //onFinish: () => console.log('hi')
     });
   };
 
   stop = () => {
-    this.mummy.stop(() => console.log('stopped'));
+    //this.mummy.stop(() => console.log('stopped'));
   };
 }

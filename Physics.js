@@ -31,6 +31,8 @@ export default function Physics(entities, { touches, time, events, world }) {
   let platform = entities.platform.body;
   let maps = entities.map.body;
   let maps2 = entities.map2.body;
+  let maps3 = entities.map3.body;
+  
   let pl = new Player();
   platform.map((x) => Matter.Body.setInertia(x, 0.1));
   
@@ -72,16 +74,19 @@ export default function Physics(entities, { touches, time, events, world }) {
     x: pl.x,
     y: pl.y,
   });
-
-  if (press === 1) {
-    platform.map((x)=>{
+platform.map((x)=>{
       if(x.types === "point"){
        maps.x = x.position.x - x.width / 2
        maps.y = x.position.y - x.height / 2
-       maps2.x = x.position.x - x.width / 2
-       maps2.y = x.position.y - x.height / 2
+       maps2.x = (x.position.x - x.width / 2) 
+       maps2.y = (x.position.y - x.height / 2) - body.size(scena.width * scena.tilewidth);
+       maps3.x = (x.position.x - x.width / 2) 
+       maps3.y = (x.position.y - x.height / 2) + body.size(scena.width * scena.tilewidth);
+      
       }
     })
+  if (press === 1) {
+    
    
     if (jsCollision) {
       joystickPosition[0] = pages.x;
@@ -99,7 +104,7 @@ export default function Physics(entities, { touches, time, events, world }) {
     } else {
       playerOptions.src = pl.leftSwim();
     }
-//maps.x =( maps.x + -player[0].position.x +  windowWidth / 2);
+
   } else {
     if (joystick.xpos > 0) {
       playerOptions.src = pl.right();

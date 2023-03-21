@@ -22,7 +22,7 @@ export default class Body {
   };
   scenaWidth = scena.width * scena.tilewidth;
   scenaHeigiht = scena.height * scena.tileheight;
-  scenaSize = (this.scenaWidth + this.scenaHeigiht) / 1.6;
+  scenaSize = (this.scenaWidth + this.scenaHeigiht) / 2;
 
   constructor(props) {
     this.props = props;

@@ -10,20 +10,18 @@ import {
   Image,
 } from 'react-native';
 import { getObject, getObjects, getObjectData } from '../action/action';
-import { ProcessingView } from 'expo-processing';
 import Matter from 'matter-js';
 import { GameEngine } from 'react-native-game-engine';
 import Physics from '../Physics';
 import Sprite from '../components/Sprite';
+import MapImg from '../components/MapImg';
 import Walls from '../classes/Body';
 import Player from '../classes/Player';
 
-import Ball from '../components/Ball';
 import Block from '../components/Block';
 import Map from '../classes/Map';
 import TileMap from '../map/TileMap';
 import scena from '../assets/scena.json';
-import TestBall from '../components/TestBall';
 import Joystick from '../classes/Joystick';
 import JoystickView from '../components/JoystickView';
 import Body from '../classes/Body';
@@ -36,10 +34,14 @@ export default function Level() {
   let body = new Body();
   let platform = new Walls(world);
   let player = new Player(world);
-  let map = new Map('bg');
+  let map = new Map();
+  let map2 = new Map();
+  let map3 = new Map();
+  let mapTop = new Map();
   map.create();
- let map2 = new Map('bg2');
   map2.create();
+  map3.create();
+  mapTop.create();
   let playerOptions = new Player();
   let joystick = new Joystick(
     body.procent(5),
@@ -63,37 +65,26 @@ export default function Level() {
       press: event,
     });
   }, [event]);
- platform.body.map((x)=>{
-      if(x.types === "point"){
-        
-       map.body.x = x.position.x - x.width / 2
-       map.body.y = x.position.y + x.height / 2
-       map2.body.x = x.position.x - x.width / 2
-       map2.body.y = x.position.y + x.height / 2
-      }
-    })
+
   let game = {
     gameWorld: { engine: engine, world: world },
    
     map: {
       body: map.body,
       scena: scena,
-      size: 50,
-      rows: 25,
-      columns: 25,
-      layers: getObjectData(scena, 'bg'),
-      img: map.src(getObjectData(scena, 'bg'), require('../assets/18.png')),
-      renderer: <TileMap />,
+      img: require('../assets/scena.png'),
+      renderer: <MapImg />,
     },
      map2: {
       body: map2.body,
       scena: scena,
-      size: 50,
-      rows: 25,
-      columns: 25,
-      layers: getObjectData(scena, 'bg2'),
-      img: map.src(getObjectData(scena, 'bg2'), require('../assets/earthWall2.png')),
-      renderer: <TileMap />,
+      img: require('../assets/scenaTop.png'),
+      renderer: <MapImg />,
+    },map3: {
+      body: map3.body,
+      scena: scena,
+      img: require('../assets/scenaBottom.png'),
+      renderer: <MapImg />,
     },
     platform: {
       body: platform.body,

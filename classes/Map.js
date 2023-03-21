@@ -13,18 +13,11 @@ export default class Map {
   Composite = Matter.Composite;
   Constraint = Matter.Constraint;
   Composites = Matter.Composites;
-  name = "bg";
+  
   body = {};
-  b;
-  image = [{"id":18,"img":require('../assets/18.png')}];
-  arr = [];
-  // props = ;
-
-  constructor(name) {
-    this.name = name;
-  }
+  
   create() {
-    this.body = getObject(scena,this.name)
+    this.body = {x:0,y:0,width:1200,height:1200}
     return this.body;
   }
 
@@ -32,4 +25,5 @@ export default class Map {
    return x.map((f)=>img);
      
   }
+
 }
