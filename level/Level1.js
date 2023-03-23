@@ -17,6 +17,7 @@ import Sprite from '../components/Sprite';
 import MapImg from '../components/MapImg';
 import Walls from '../classes/Body';
 import Player from '../classes/Player';
+import SpriteImg from '../components/SpriteImg';
 
 import Block from '../components/Block';
 import Map from '../classes/Map';
@@ -58,7 +59,7 @@ export default function Level() {
   
   platform.createRect('platform');
   platform.isStatic(true);
-  engine.gravity.y = 0.0;
+  engine.gravity.y = 1.0;
   let gameEngine = null;
   React.useEffect(() => {
     gameEngine.dispatch({
@@ -95,12 +96,12 @@ export default function Level() {
       body: player.body,
       color: 'red',
       options: {
-        frameImg: 6,
-        colums: 6,
-        play: true,
+        frameImg: 1,
+        colums: 1,
+        play: false,
         loop: true,
         fps: 10,
-        src: require('../assets/rightRest.png'),
+        src: require('../assets/player.png'),
       },
       renderer: <Sprite />,
     },

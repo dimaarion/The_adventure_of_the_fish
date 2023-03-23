@@ -21,6 +21,9 @@ export default class Player {
   height = 0;
   countBody = 4;
   rotates = 0;
+  speed = 5;
+  mass = 10;
+  
   constructor(props) {
     this.props = props;
   }

@@ -68,7 +68,7 @@ export default function Physics(entities, { touches, time, events, world }) {
     joystickV.height
   );
  
-  player[0].angle = 0;
+ // player[0].angle = 0;
   joystick._atan2(pages.x, pages.y);
   Matter.Body.setPosition(player[0], {
     x: pl.x,
@@ -91,25 +91,24 @@ platform.map((x)=>{
     if (jsCollision) {
       joystickPosition[0] = pages.x;
       joystickPosition[1] = pages.y;
-      Matter.Body.setPosition(player[0], {
-        x: pl.x + joystick.xpos * 30,
-        y: pl.y + joystick.ypos * 50,
-      });
+      Matter.Body.setAngle(player[0], 
+        5
+      );
     } else {
       joystickPosition[0] = joystickV.x + joystickV.width / 2;
       joystickPosition[1] = joystickV.y + joystickV.height / 2;
     }
     if (joystick.xpos > 0) {
-      playerOptions.src = pl.rightSwim();
+    //  playerOptions.src = pl.rightSwim();
     } else {
-      playerOptions.src = pl.leftSwim();
+     // playerOptions.src = pl.leftSwim();
     }
 
   } else {
     if (joystick.xpos > 0) {
-      playerOptions.src = pl.right();
+     // playerOptions.src = pl.right();
     } else {
-      playerOptions.src = pl.left();
+     // playerOptions.src = pl.left();
     }
     joystickPosition[0] = joystickV.x + joystickV.width / 2;
     joystickPosition[1] = joystickV.y + joystickV.height / 2;
